@@ -1,12 +1,6 @@
 
 ## mygeoparse
-[![Build Status](https://travis-ci.org/jingw2/size_constrained_clustering.svg?branch=master)](https://travis-ci.org/jingw2/size_constrained_clustering)
-[![PyPI version](https://badge.fury.io/py/size-constrained-clustering.svg)](https://badge.fury.io/py/size-constrained-clustering)
-![GitHub](https://img.shields.io/github/license/jingw2/size_constrained_clustering)
-[![codecov](https://codecov.io/gh/jingw2/size_constrained_clustering/branch/master/graph/badge.svg)](https://codecov.io/gh/jingw2/size_constrained_clustering)
-![PyPI - Downloads](https://img.shields.io/pypi/dm/size-constrained-clustering)
-![Codecov](https://img.shields.io/codecov/c/github/jingw2/size_constrained_clustering)
-
+![GitHub](https://img.shields.io/github/license/azzan-amin-97/mygeoparse)
 
 Address Parser for Malaysian Address 
 
@@ -16,9 +10,6 @@ Requirement Python >= 3.6
 ```shell
 pip install mygeoparse
 ```
-
-### Methods
-* My Module algorithms
 
 
 ### Usage:
