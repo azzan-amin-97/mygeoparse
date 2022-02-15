@@ -7,12 +7,12 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="tlo_my_address_parser",
-    version="0.0.1",
+    version="0.0.2",
     description='Malaysia Address Parser',
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/azzan-amin-97/tlo-my-address-parser.git',
-    download_url='https://github.com/tribasuki74/Indonesian-Address-Parser/archive/v0.0.1.tar.gz',
+    download_url='https://github.com/azzan-amin-97/tlo-my-address-parser/archive/refs/heads/master.zip',
     author="Azzan Amin",
     author_email='ibnuamin97@thelorry.com',
     packages=["tlo_my_address_parser", 'ner', 'data'],
@@ -38,4 +38,3 @@ setuptools.setup(
         'Programming Language :: Python :: 3.6',
     ]
 )
-pi
