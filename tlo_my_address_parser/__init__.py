@@ -1,1 +1,1 @@
-from .parser import MalaysianAddressParser
+from .Parser import MalaysianAddressParser

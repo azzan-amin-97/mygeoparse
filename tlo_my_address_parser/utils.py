@@ -1,11 +1,10 @@
 import pandas as pd
 import re
 import spacy
-import numpy as np
 
 from re import search
 
-nlp = spacy.load('ner/ner_my')
+nlp = spacy.load('ner/model_1')
 
 
 def load_postcode_dataframe():
@@ -146,8 +145,8 @@ def find_missing_address_parts(df):
     df_bjobs_new = find_missing_city(df_bjobs_new)
     df_bjobs_new = find_missing_state(df_bjobs_new)
 
-    print('Pre-process 2 - Fill in missing values with existing data... Success')
-    print('Preprocessing Stage 2... Success')
+    # print('Pre-process 2 - Fill in missing values with existing data... Success')
+    # print('Preprocessing Stage 2... Success')
     return df_bjobs_new
 
 
@@ -211,8 +210,8 @@ def parse_one_address(address):
     city_found.append(city)
     postcodes_found.append(postcode)
     all_address_r_list.append(address)
-    print("===============================")
-    print("Before split street and house address:", address)
+    # print("===============================")
+    # print("Before split street and house address:", address)
     street_index = split_house_address_and_street(address)
     if street_index > 0:
         house_address = str(address[:street_index])[1:-1].replace("'", "")
@@ -221,9 +220,9 @@ def parse_one_address(address):
         house_address = 'N/A'
         street_name = str(address[street_index:])[1:-1].replace("'", "")
 
-    print("After Split:")
-    print("House Address: ", house_address)
-    print("Street Name: ", street_name)
+    # print("After Split:")
+    # print("House Address: ", house_address)
+    # print("Street Name: ", street_name)
 
     if house_address != 'N/A':
 
@@ -231,7 +230,7 @@ def parse_one_address(address):
         building_name = ''
         house_number = ''
 
-        print('\nOutput: ', [(ent.text, ent.label_) for ent in doc.ents])
+        # print('\nOutput: ', [(ent.text, ent.label_) for ent in doc.ents])
         for ent in doc.ents:
             if ent.label_ == 'HOUSE NUMBER':
                 house_number = house_number + ' ' + ent.text
@@ -252,10 +251,10 @@ def parse_one_address(address):
         list_building_name.append(building_name)
         list_house_number.append(house_number)
 
-    print("House Address:", house_address)
-    print("After labeled by NER:")
-    print(house_number, ",", building_name)
-    print("===============================")
+    # print("House Address:", house_address)
+    # print("After labeled by NER:")
+    # print(house_number, ",", building_name)
+    # print("===============================")
     # address_full = [house_number, building_name, house_address.replace(",", ""), street_name.replace(",", ""),
     #                 postcode, city, state, country]
 
@@ -266,7 +265,7 @@ def parse_one_address(address):
     df = pd.DataFrame(list_address_full,
                       columns=['house_number', 'building_name', 'street_name', 'postcode', 'city',
                                'state', 'country'])
-    print('Pre-process 1 - Identify Address Items... Success')
+    # print('Pre-process 1 - Identify Address Items... Success')
     return df
 
 
@@ -344,7 +343,7 @@ def address_splitting(address):
 
     final_cleaned_tokenized_address = c_tokenized_address_3
 
-    print('Pre-process 2 - Tokenizing addresses... Success')
+    # print('Pre-process 2 - Tokenizing addresses... Success')
     return final_cleaned_tokenized_address
 
 
@@ -395,9 +394,9 @@ def expand_address(address):
 
 def clean_one_address(address):
     expanded_address = expand_address(address)
-    print('Pre-process 1 - Expanding Abbreviations... Success')
+    # print('Pre-process 1 - Expanding Abbreviations... Success')
     splitted_address = address_splitting(expanded_address)
-    print('Preprocessing Stage 1... Success')
+    # print('Preprocessing Stage 1... Success')
     return splitted_address
 
 
@@ -464,8 +463,8 @@ def parse_addresses(address_list):
 
         street_index = split_house_address_and_street(address)
 
-        print("===============================")
-        print("Before split street and house address:", address)
+        # print("===============================")
+        # print("Before split street and house address:", address)
 
         if street_index > 0:
             house_address = str(address[:street_index])[1:-1].replace("'", "")
@@ -474,16 +473,16 @@ def parse_addresses(address_list):
             house_address = 'N/A'
             street_name = str(address[street_index:])[1:-1].replace("'", "")
 
-        print("After Split:")
-        print("House Address: ", house_address)
-        print("Street Name: ", street_name)
+        # print("After Split:")
+        # print("House Address: ", house_address)
+        # print("Street Name: ", street_name)
         if house_address != 'N/A':
 
             doc = nlp(house_address)
             building_name = ''
             house_number = ''
 
-            print('Output: ', [(ent.text, ent.label_) for ent in doc.ents])
+            # print('Output: ', [(ent.text, ent.label_) for ent in doc.ents])
 
             for ent in doc.ents:
                 if ent.label_ == 'HOUSE NUMBER':
@@ -505,10 +504,10 @@ def parse_addresses(address_list):
             list_building_name.append(building_name)
             list_house_number.append(house_number)
 
-        print("House Address:", house_address)
-        print("After labeled by NER:")
-        print(house_number, ",", building_name)
-        print("===============================")
+        # print("House Address:", house_address)
+        # print("After labeled by NER:")
+        # print(house_number, ",", building_name)
+        # print("===============================")
 
         address_full = [house_number, building_name, street_name.replace(",", ""),
                         postcode, city, state, country]
@@ -518,7 +517,7 @@ def parse_addresses(address_list):
     df = pd.DataFrame(list_address_full,
                       columns=['house_number', 'building_name', 'street_name', 'postcode', 'city',
                                'state', 'country'])
-    print('Pre-process 1 - Identify Address Items... Success')
+    # print('Pre-process 1 - Identify Address Items... Success')
     return df
 
 
@@ -526,12 +525,18 @@ def execute_parsing_address_one(address):
     tokenized_address = clean_one_address(address)
     df_address_items = parse_one_address(tokenized_address)
     result = find_missing_address_parts(df_address_items)
+    result =list(result.T.to_dict().values())[0]
     return result
 
 
 def execute_parsing_address_all(address_list):
+    # print(address_list)
     df = pd.DataFrame(address_list, columns=['full_address'])
     df['full_address'] = df['full_address'].apply(lambda x: clean_one_address(x))
-    df_parsed_addresses = parse_addresses(df)
+    # print(df)
+    df_parsed_addresses = parse_addresses(df['full_address'].to_list())
     result = find_missing_address_parts(df_parsed_addresses)
-    return result
+    return result.T.to_dict()
+
+
+
