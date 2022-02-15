@@ -1,4 +1,4 @@
-from tlo_my_address_parser import MalaysianAddressParser
+from mygeoparse import MalaysianAddressParser
 
 myAddressParser = MalaysianAddressParser()
 

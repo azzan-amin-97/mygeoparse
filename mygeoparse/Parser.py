@@ -3,7 +3,7 @@
 """
 import numpy as np
 
-from tlo_my_address_parser.utils import execute_parsing_address_all, execute_parsing_address_one
+from mygeoparse.utils import execute_parsing_address_all, execute_parsing_address_one
 
 
 class MalaysianAddressParser:
