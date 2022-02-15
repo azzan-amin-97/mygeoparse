@@ -38,3 +38,4 @@ setuptools.setup(
         'Programming Language :: Python :: 3.6',
     ]
 )
+pi
