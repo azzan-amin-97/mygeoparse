@@ -4,7 +4,7 @@ import spacy
 
 from re import search
 
-nlp = spacy.load('ner/model_1')
+nlp = spacy.load('ner/model')
 
 
 def load_postcode_dataframe():
