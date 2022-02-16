@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="mygeoparse",
-    version="0.0.4",
+    version="0.0.9",
     description='Malaysia Address Parser',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -15,9 +15,10 @@ setuptools.setup(
     download_url='https://github.com/azzan-amin-97/tlo-my-address-parser/archive/refs/heads/master.zip',
     author="Azzan Amin",
     author_email='ibnuamin97@thelorry.com',
-    packages=["mygeoparse", 'ner', 'data'],
+    packages=["mygeoparse"],
+    keywords=['address', 'parser', 'ner'],
     license='MIT',
-    install_requires=[],
+    install_requires=['spacy>=2.3.2', 'pandas'],
     classifiers=[
         # How mature is this project? Common values are
         #   3 - Alpha

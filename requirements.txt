@@ -32,7 +32,6 @@ six==1.16.0
 spacy==2.3.2
 srsly==1.0.5
 thinc==7.4.1
-tlo-my-address-parser @ file:///Users/thelorry/Work/TheLorryData/DataScience/tlo-my-address-parser
 tqdm==4.62.3
 twine==3.8.0
 urllib3==1.26.8

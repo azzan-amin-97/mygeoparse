@@ -4,11 +4,11 @@ import spacy
 
 from re import search
 
-nlp = spacy.load('ner/model')
+nlp = spacy.load('mygeoparse/ner/model')
 
 
 def load_postcode_dataframe():
-    df_postcode_my = pd.read_csv("data/postcode_my.csv")
+    df_postcode_my = pd.read_csv("mygeoparse/data/postcode_my.csv")
     df_postcode_my['Location'] = df_postcode_my['Location'].str.upper()
     df_postcode_my['Post_Office'] = df_postcode_my['Post_Office'].str.upper()
     df_postcode_my['Postcode'] = df_postcode_my['Postcode'].str.upper()
