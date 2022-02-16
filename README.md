@@ -19,8 +19,8 @@ pip install mygeoparse
 from mygeoparse import MalaysianAddressParser
 ```
 
-#### Parse One Address:
-
+### Parse One Address:
+##### Example Code
 ```python
 # import class from module
 from mygeoparse import MalaysianAddressParser
@@ -34,8 +34,21 @@ result = myAddressParser.parser("1-6-6, Icon Residenz, Jalan SS 8/2, Sungei Way,
 print(result)
 
 ```
+##### Output
+```
+{
+    "house_number": " 1-6-6",
+    "building_name": " ICON RESIDENZ",
+    "street_name": "JALAN SS 8/2 SUNGEI WAY",
+    "postcode": "47300",
+    "city": "PETALING JAYA",
+    "state": "SELANGOR",
+    "country": "MY"
+}
+```
 
-#### Parse List of Addresses:
+### Parse List of Addresses:
+#### Example Code
 ```python
 # Parsing List of Addresses
 result = myAddressParser.parser(
@@ -44,6 +57,29 @@ result = myAddressParser.parser(
 )
 
 print(result)
+```
+##### The Output
+```
+{
+    "0": {
+        "house_number": " 1-6-6",
+        "building_name": " ICON RESIDENZ",
+        "street_name": "JALAN SS 8/2 SUNGEI WAY",
+        "postcode": "47300",
+        "city": "PETALING JAYA",
+        "state": "SELANGOR",
+        "country": "MY"
+    },
+    "1": {
+        "house_number": " A-1-2",
+        "building_name": " RIANA GREEN CONDOMINIUM",
+        "street_name": "JALAN TROPICANA UTARA  PJU 3",
+        "postcode": "47410",
+        "city": "PETALING JAYA",
+        "state": "SELANGOR",
+        "country": "MY"
+    }
+}
 ```
 
 ## Copyright

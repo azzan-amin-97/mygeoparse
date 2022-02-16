@@ -1,3 +1,5 @@
+import json
+
 import pandas as pd
 import re
 import spacy
@@ -526,7 +528,7 @@ def execute_parsing_address_one(address):
     df_address_items = parse_one_address(tokenized_address)
     result = find_missing_address_parts(df_address_items)
     result =list(result.T.to_dict().values())[0]
-    return result
+    return json.dumps(result, indent=4)
 
 
 def execute_parsing_address_all(address_list):
@@ -536,7 +538,7 @@ def execute_parsing_address_all(address_list):
     # print(df)
     df_parsed_addresses = parse_addresses(df['full_address'].to_list())
     result = find_missing_address_parts(df_parsed_addresses)
-    return result.T.to_dict()
+    return json.dumps(result.T.to_dict(), indent=4)
 
 
 
